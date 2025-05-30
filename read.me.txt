@@ -1,0 +1,136 @@
+# Sistema de Gestión de Clientes y Archivos PDF - Laravel
+
+Este proyecto es un sistema web desarrollado con Laravel que permite a un administrador registrar clientes y subir archivos PDF asociados a cada uno. Los clientes pueden iniciar sesión para visualizar sus archivos. El sistema incluye autenticación diferenciada por rol (admin/cliente), dashboard personalizado, y una interfaz construida con Tailwind CSS.
+
+---
+
+Características principales
+
+- Autenticación con roles (`admin` y `cliente`)
+- Registro de clientes por el administrador
+- Subida de archivos PDF para cada cliente
+- descarga de archivos por el cliente
+- Panel administrativo con conteos globales
+- Panel de cliente personalizado
+- Rutas protegidas y validadas
+- Interfaz responsive con Tailwind CSS
+---
+
+Requisitos
+
+- PHP >= 8.1
+- Composer
+- Laravel >= 10.x
+- MySQL / MariaDB
+- Node.js y NPM
+- Extensión `zip` habilitada en PHP (para Vite y dependencias)
+
+---
+
+Instalación paso a paso
+
+1. Clona el repositorio
+
+```bash
+git clone https://github.com/JSFloreX/proyecto-final.git
+cd tu-repo
+
+2. Instala las dependencias de PHP y JavaScript
+
+bash
+Copy
+Edit
+composer install
+npm install
+
+Copia el archivo .env y configura
+
+bash
+Copy
+Edit
+cp .env.example .env
+
+Edita el archivo .env con tus datos de base de datos y configura:
+
+dotenv
+Copy
+Edit
+DB_DATABASE=nombre_de_tu_base_de_datos
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_contraseña
+
+Genera la clave de la aplicación
+
+bash
+Copy
+Edit
+php artisan key:generate
+
+Ejecuta las migraciones
+
+bash
+Copy
+Edit
+php artisan migrate
+
+
+Crea el usuario administrador (temporalmente manual)
+
+En la base de datos, inserta un usuario administrador en la tabla users o crea un seeder. Ejemplo:
+
+php
+Copy
+Edit
+User::create([
+  'name' => 'Admin',
+  'email' => 'admin@admin.com',
+  'password' => bcrypt('admin123'),
+  'rol' => 'admin'
+]);
+
+
+Levanta el servidor de desarrollo
+
+
+php artisan serve
+
+
+Compila los assets con Vite
+
+npm run dev
+
+Acceso al sistema
+Panel Admin
+URL: http://localhost:8000/login
+
+Correo: admin@admin.com
+
+Contraseña: admin123
+
+Funciones:
+
+Crear clientes
+
+Subir archivos PDF a clientes
+
+Ver conteo de clientes y documentos
+
+Panel Cliente
+URL: http://localhost:8000/login
+
+El cliente accede usando su cédula como usuario y su voucher como contraseña
+
+Puede ver sus propios archivos PDF
+
+Estructura de carpetas clave
+app/Models/Cliente.php → Modelo de clientes
+
+app/Models/Archivo.php → Modelo de archivos
+
+app/Http/Controllers/AdminController.php → Funciones del administrador
+
+app/Http/Controllers/ClienteController.php → Funciones del cliente
+
+app/Http/Controllers/ArchivoController.php → Lógica de almacenamiento de PDF
+
+resources/views/ → Vistas Blade (diferenciadas por rol)

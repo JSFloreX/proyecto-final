@@ -12,8 +12,8 @@ class AdminController extends Controller
      public function index()
     {
          $totalClientes = Cliente::count();
-
-              return view('admin.dashboard', compact('totalClientes'));
+            $totalFiles = Archivo::count();
+              return view('admin.dashboard', compact('totalClientes', 'totalFiles'));
               
     }
     public function verClientesConCarga()

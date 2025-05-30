@@ -32,10 +32,7 @@
                         <td class="py-3 px-6 font-medium">{{ $index + 1 }}</td>
                         <td class="py-3 px-6 font-mono">{{ $cliente->cedula }}</td>
                         <td class="py-3 px-6 flex gap-3 flex-wrap">
-                            <a href="{{ route('clientes.edit', $cliente->id) }}"
-                               class="custom-btn border border-gray-600 text-gray-600 dark:text-gray-300 dark:border-gray-500 hover:bg-gray-600 hover:text-white">
-                                Editar
-                            </a>
+                            
                             <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" onsubmit="return confirm('¿Seguro que deseas eliminar este cliente?');">
                                 @csrf
                                 @method('DELETE')
@@ -73,7 +70,7 @@
     animation: fadeInUp 0.5s ease forwards;
 }
 
-/* Tu clase personalizada */
+
 .custom-btn {
     @apply font-bold py-2 px-4 rounded-md transition-all duration-300 ease-in-out;
 }

@@ -10,7 +10,7 @@ class RoleMiddleware
 {
    public function handle(Request $request, Closure $next, $role)
 {
-    $user = Auth::user(); // Unifica todo
+    $user = Auth::user(); 
 
     if (!$user) {
         return redirect('/login');

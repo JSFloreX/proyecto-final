@@ -20,7 +20,7 @@ return new class extends Migration
 public function down()
 {
     Schema::table('archivos', function (Blueprint $table) {
-        $table->string('tipo')->change(); // o como estaba antes
+        $table->string('tipo')->change(); 
     });
 }
 

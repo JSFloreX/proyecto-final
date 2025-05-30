@@ -40,7 +40,7 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'cliente' => [  // nuevo guard para clientes
+        'cliente' => [ 
             'driver' => 'session',
             'provider' => 'clientes',
         ],
@@ -68,7 +68,7 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'clientes' => [  // nuevo provider para clientes
+        'clientes' => [  
             'driver' => 'eloquent',
             'model' => App\Models\Cliente::class,
         ],

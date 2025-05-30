@@ -51,17 +51,14 @@
   </script>
 </head>
 <body class="min-h-screen flex items-center justify-center bg-gray-900">
-
   <div class="bg-yellow-500 w-80 p-6 rounded-lg shadow-lg">
-  <img src="{{ asset('imagenes/logo.png') }}" alt="Logo" class="w-full h-auto mb-4 ml-4" />
-
+    <img src="{{ asset('imagenes/logo.png') }}" alt="Logo" class="w-full h-auto mb-4 ml-4" />
 
     @if(session('error'))
       <div class="bg-red-600 text-white text-sm font-semibold rounded px-3 py-2 mb-4">
         {{ session('error') }}
       </div>
     @endif
-
 
     <div class="flex mb-6 bg-white rounded-full overflow-hidden">
       <button
@@ -80,7 +77,7 @@
       </button>
     </div>
 
-
+ 
     <form
       id="form-admin"
       method="POST"
@@ -89,8 +86,8 @@
       class="hidden"
     >
       @csrf
-      <input type="text" name="fakeusernameremembered" style="display:none" />
-      <input type="password" name="fakepasswordremembered" style="display:none" />
+      <input type="text" name="fakeusernameremembered" style="display:none" aria-hidden="true" />
+      <input type="password" name="fakepasswordremembered" style="display:none" aria-hidden="true" />
 
       <div class="mb-4">
         <label for="usuario_admin" class="block text-yellow-900 font-semibold">Correo electrónico</label>
@@ -99,7 +96,7 @@
           name="usuario"
           id="usuario_admin"
           value="{{ old('usuario') }}"
-          autocomplete="username"
+          autocomplete="off"
           class="mt-1 p-2 w-full rounded border border-gray-300 focus:ring focus:ring-blue-300"
           required
         />
@@ -109,12 +106,12 @@
       </div>
 
       <div class="mb-4">
-        <label for="password_admin" class="block text-yellow-900 font-semibold">Contraseña</label>
+        <label for="admin_pass_field" class="block text-yellow-900 font-semibold">Contraseña</label>
         <input
           type="password"
           name="password"
-          id="password_admin"
-          autocomplete="current-password"
+          id="admin_pass_field"
+          autocomplete="off"
           class="mt-1 p-2 w-full rounded border border-gray-300 focus:ring focus:ring-blue-300"
           required
         />
@@ -133,7 +130,7 @@
       </button>
     </form>
 
-
+  
     <form
       id="form-cliente"
       method="POST"
@@ -142,8 +139,8 @@
       class="hidden"
     >
       @csrf
-      <input type="text" name="fakeusernameremembered" style="display:none" />
-      <input type="password" name="fakepasswordremembered" style="display:none" />
+      <input type="text" name="fakeusernameremembered" style="display:none" aria-hidden="true" />
+      <input type="password" name="fakepasswordremembered" style="display:none" aria-hidden="true" />
 
       <div class="mb-4">
         <label for="usuario_cliente" class="block text-yellow-900 font-semibold">Cédula</label>
@@ -152,7 +149,7 @@
           name="usuario"
           id="usuario_cliente"
           value="{{ old('usuario') }}"
-          autocomplete="new-username"
+          autocomplete="off"
           class="mt-1 p-2 w-full rounded border border-gray-300 focus:ring focus:ring-blue-300"
           required
         />
@@ -162,12 +159,12 @@
       </div>
 
       <div class="mb-4">
-        <label for="password_cliente" class="block text-yellow-900 font-semibold">Código Voucher</label>
+        <label for="cliente_pass_field" class="block text-yellow-900 font-semibold">Código Voucher</label>
         <input
           type="password"
           name="password"
-          id="password_cliente"
-          autocomplete="new-password"
+          id="cliente_pass_field"
+          autocomplete="off"
           class="mt-1 p-2 w-full rounded border border-gray-300 focus:ring focus:ring-blue-300"
           required
         />
@@ -186,8 +183,6 @@
       </button>
     </form>
   </div>
-
-
   <div id="toast"></div>
 </body>
 </html>

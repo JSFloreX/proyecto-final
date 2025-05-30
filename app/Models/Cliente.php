@@ -28,10 +28,10 @@ class Cliente extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public $timestamps = false; // Si tu tabla no los usa
+    public $timestamps = false; 
 
-    protected $rememberTokenName = false; // Opcional si no usas recordar sesión
-
+    protected $rememberTokenName = false; 
+    
     public function getAuthPassword()
     {
         return $this->voucher;

@@ -12,7 +12,7 @@
 <body class="font-sans antialiased bg-gray-100 dark:bg-gray-900">
     <div class="flex min-h-screen">
 
-        <!-- Sidebar admin fijo -->
+    
         <aside class="w-64 bg-white dark:bg-gray-800 shadow-lg hidden sm:flex flex-col">
             <<div class="p-6 border-b border-gray-200 dark:border-gray-700">
               
@@ -36,7 +36,7 @@
             </nav>
         </aside>
 
-        <!-- Contenido principal que cambia -->
+       
         <main class="flex-1 p-8 overflow-auto">
             @yield('content')
         </main>

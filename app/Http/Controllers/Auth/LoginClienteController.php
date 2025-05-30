@@ -12,7 +12,7 @@ class LoginClienteController extends Controller
 {
     public function showLoginForm()
     {
-        return view('login'); // o la vista que uses para el login
+        return view('login'); 
     }
 
     public function login(Request $request)
@@ -22,14 +22,13 @@ class LoginClienteController extends Controller
             'password' => 'required|string',
         ]);
 
-        // Buscar cliente por cedula
+        
         $cliente = Cliente::where('cedula', $request->usuario)->first();
 
         if (!$cliente || !Hash::check($request->password, $cliente->voucher)) {
             return response()->json(['message' => 'Credenciales incorrectas.'], 401);
         }
 
-        // Autenticar con guard 'cliente'
         Auth::guard('cliente')->login($cliente);
 
         $request->session()->regenerate();
